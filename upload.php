@@ -33,8 +33,8 @@
   $sub = $instance_details['compute']['subscriptionId'];
   $rg = $instance_details['compute']['resourceGroupName'];
 
-  $storageAccount = 'cybernixfinapp';
-  $containerName = 'cynixpdfblob';
+  $storageAccount = '<storageaccount>';;
+  $containerName = '<blobname>';
   $username_no_spaces = preg_replace('/\s+/', '', $_SESSION['name']);
   function gen_sas_token($perms,$storageAccount,$containerName,$sub,$rg,$token) {
     $sasurl = 'https://management.azure.com/subscriptions/'.$sub.'/resourceGroups/'.$rg.'/providers/Microsoft.Storage/storageAccounts/'.$storageAccount.'/listServiceSas/?api-version=2017-06-01';

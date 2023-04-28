@@ -1,6 +1,6 @@
 <?php
    
-    $azureServer = 'app-auth-db.database.windows.net';
+    $azureServer = '<databaseserver>.database.windows.net';
     $azureDatabase = 'userdb';
     $connectionInfo = array('Database'=>$azureDatabase,'Authentication'=>'ActiveDirectoryMsi');
     $conn = sqlsrv_connect($azureServer, $connectionInfo);
