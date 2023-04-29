@@ -11,7 +11,7 @@
         
         $tsql = "select * from [dbo].[users] where username='".$_POST['username']."'";
         $stmt = sqlsrv_query($conn, $tsql);
-        var_dump($stmt);
+        
         if ($stmt === false) {
             //Redirect to login page
             header('Location: index.php');
@@ -19,8 +19,8 @@
         else{
                
             while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
-                echo $row['password'];
-                if (password_verify($row['password'], $_POST['password'])) {
+                
+                if (password_verify($_POST['password'], $row['password'])) {
                     // Passwords match, log in the user
                     session_start();
                     $_SESSION['user_id'] = $row['id'];
