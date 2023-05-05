@@ -118,12 +118,17 @@ $ipdat = @json_decode(file_get_contents(
     <body>
       <div class="topcorner">
         
-      <p class="text-primary"> <?php echo '<br><a href="logout.php">Logout : '.$_SESSION['name']; ?></a></p>
+        <p class="text-primary"> <?php echo '<br><a href="logout.php">Logout : '.$_SESSION['name']; ?></a></p>
+        <br>
+        <form class="form-inline ml-auto">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
         
       </div>
 
       <div class="col-md-6 offset-md-3 mt-5">
-            <a target="_blank" href="https://www.zscaler.com">
+              <a target="_blank" href="https://www.zscaler.com">
                 <img class="rounded mx-auto d-block" src='logo.png' style="width:200px;height:200px;">
               </a>
               <br>

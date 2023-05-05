@@ -39,7 +39,8 @@ session_start();
                 <img class="rounded mx-auto d-block" src='logo.png' style="width:200px;height:200px;">
       </a>
       <h2>Login</h2>
-      <form action="login-2.php" method="POST">
+      <!--<form action="login-2.php" method="POST">!-->
+      <form id="login-form">  
         <div class="form-group">
           
           <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
@@ -49,9 +50,39 @@ session_start();
           <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
+        <p><div id="response-message" class="text-primary"></div></p>
       </form>
     </div>
   </div>
+  <script>
+   
+    $(function() {
+      $('#login-form').submit(function(event) {
+        // Prevent the form from submitting normally
+        event.preventDefault();
+
+        // Get the form data
+        var formData = $(this).serialize();
+
+        // Send the form data using AJAX
+        $.ajax({
+          url: 'login-2.php',
+          type: 'POST',
+          data: formData,
+          success: function(response) {
+            // Redirect to the upload page on success            
+            window.location.reload();
+          },
+          error: function(xhr, status, error) {
+            // Show an error message
+            $('#response-message').html(xhr.responseText);
+          }
+        });
+      });
+    });
+  </script>
+
+
 </body>
 </html>
 
