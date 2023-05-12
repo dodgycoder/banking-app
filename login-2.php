@@ -2,7 +2,7 @@
 
 
     function logger (&$id,&$error) {
-            //Post to log4j tomcat webservice
+    
         $url = '<loggerurl>';
         $data = array('id' => $id, 'content' => $error);
 
